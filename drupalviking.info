@@ -1,0 +1,44 @@
+name = DrupalViking profile
+description = DrupalVikings favourite module install profile
+core = 7.x
+exclusive = true
+package = DrupalViking
+
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = admin_menu
+dependencies[] = overlay
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+
+; various add-on modules that DrupalViking wants to be turned on by default.
+dependencies[] = ctools
+dependencies[] = scald
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = ckeditor
+dependencies[] = admin_views
+dependencies[] = context
+dependencies[] = date
+dependencies[] = entity
+dependencies[] = file_entity
+dependencies[] = i18n
+dependencies[] = metatag
+dependencies[] = module_filter
+dependencies[] = nodequeue
+dependencies[] = pathauto
+dependencies[] = redirect
+dependencies[] = token
+dependencies[] = webform

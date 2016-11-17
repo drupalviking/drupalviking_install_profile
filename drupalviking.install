@@ -1,0 +1,37 @@
+<?php
+/**
+ * Implements hook_install(). 
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function drupalviking_install(){
+	include_once DRUPAL_ROOT . '/profiles/minimal/minimal.install';
+	minimal_install();
+
+  /* Set adminimal_theme as our admin theme */
+  variable_set('admin_theme', 'adminimal_theme');
+
+  /* Set this as default "Site email address" */
+  ini_set('sendmail_from', 'drupalviking@gmail.com');
+
+  /* Set cron to run each hour */
+  variable_set('cron_safe_threshold', "3600");
+
+  /* Set higher limit on log messages to keep */
+  variable_set('dblog_row_limit', "1000000");
+
+  /* Set cache lifetime to 30 minutes */
+  variable_set('cache_lifetime', "1800");
+  variable_set('page_cache_maximum_age', "1800");
+  variable_set('pathauto_node_pattern', "/[node:title]");
+
+  /* Creation of users by admin only */
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+
+  /* Allow anonymous & authenticated users to search content */
+  user_role_change_permissions(DRUPAL_ANONYMOUS_RID, array("search content" => TRUE));
+  user_role_change_permissions(DRUPAL_AUTHENTICATED_RID, array("search content" => TRUE));
+
+  /* In the end: Flush all caches, just to be safe */
+  drupal_flush_all_caches();
+}
